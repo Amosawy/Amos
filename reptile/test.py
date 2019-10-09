@@ -6,4 +6,3 @@ from simple.scrapy import link_crawler
 # scrape_callback=AlexaCallback()
 # cache=MongoCache()
 # link_crawler(scrape_callback.seed_url,link_regex=None,scrape_callback=scrape_callback,cache=cache)
-
