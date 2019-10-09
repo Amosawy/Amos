@@ -2,7 +2,7 @@ import csv
 import io
 from zipfile import ZipFile
 
-
+# 获取需要下载的链接
 class AlexaCallback:
     def __init__(self,max_urls=5):
         self.max_urls=max_urls

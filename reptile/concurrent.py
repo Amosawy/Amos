@@ -7,7 +7,6 @@ import io
 from zipfile import ZipFile
 
 import chardet
-import pandas as pd
 from simple.downloader import Downloader
 # /home/amos/下载/top-1m.csv.zip
 D=Downloader()
