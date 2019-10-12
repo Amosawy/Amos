@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 from pymongo import MongoClient
 
 
@@ -21,10 +22,34 @@ class MongoQueue:
         except:
             print("this is already in the queue")
             pass
-    # def pop(self):
-    #     # Get an outstanding URL from the queue and set its status to processing.
-    #     # if the queue is empty a keyerrir exception is raise
-    #     record=self.db.crawl_queue.find_and_modify(
-    #         query={'status':self.OUTSTANDING}
-    #         update={'$set':{'status':,}}
-    #     )
+    def pop(self):
+        # Get an outstanding URL from the queue and set its status to processing.
+        # if the queue is empty a keyerrir exception is raise
+        record=self.db.crawl_queue.find_and_modify(
+            query={'status':self.OUTSTANDING},
+            update={'$set':{'status':self.PROCESSING,'timestamp':datetime.now()}}
+        )
+        if record:
+            return  record['_id']
+        else:
+            self.repair()
+            raise KeyError()
+    def peek(self):
+        record=self.db.crawl_queue.find_one({'status':self.OUTSTANDING})
+        if record:
+            return record['_id']
+    def complete(self,url):
+        self.db.crawl_queue.update({'_id':url},{'$set':{'status':self.COMPLETE}})
+    def repair(self):
+        # Release stalled jobs
+        record=self.db.crawl_queue.find_and_modify(
+            query={
+                'timestamp':{'$lt':datetime.now()-timedelta(seconds=self.timeout)},
+                'status':{'$ne':self.COMPLETE}
+            },
+            update={'$set':{'status':self.OUTSTANDING}}
+        )
+        if record:
+            print('Released',record['_id'])
+    def clear(self):
+        self.db.crawl_queue.drop()
