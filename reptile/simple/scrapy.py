@@ -41,7 +41,7 @@ def get_links(html):
     webpage_regex=re.compile('<a[^>]+href=["\'](.*?)["\']',re.IGNORECASE)
     return webpage_regex.findall(html)
 
-link_crawler('http://example.webscraping.com/','/(index|view)/',depth_max=1,scrape_callback=ScrapeCallback(),cache=MongoCache())
+# link_crawler('http://example.webscraping.com/','/(index|view)/',depth_max=1,scrape_callback=ScrapeCallback(),cache=MongoCache())
 
 # 缓存到磁盘
 # class DiskCache:
