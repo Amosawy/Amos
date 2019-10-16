@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ab0813f-64b4-4d29-9bd1-797ae3823ff1" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/venv/lib/python3.5/site-packages/PyQt5-5.13.1.dist-info/INSTALLER" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/lib/python3.5/site-packages/PyQt5-5.13.1.dist-info/METADATA" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/lib/python3.5/site-packages/PyQt5-5.13.1.dist-info/RECORD" beforeDir="false" />
@@ -3585,6 +3586,11 @@
       <change beforePath="$PROJECT_DIR$/venv/lib/python3.5/site-packages/pyside2uic/uiparser.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/lib/python3.5/site-packages/pyside2uic/widget-plugins/qtdeclarative.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/lib/python3.5/site-packages/pyside2uic/widget-plugins/qtwebkit.py" beforeDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/dynamic_content/search_all.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dynamic_content/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic_content/test.py" afterDir="false" />
+>>>>>>> 6a7bf5f2de02742b0b45a14f5d8eec3b102b176d
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -3633,7 +3639,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test (1)">
+  <component name="RunManager" selected="Python.search_all">
     <configuration name="process_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="untitled1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -3746,9 +3752,13 @@
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Python.test (1)" />
+=======
+>>>>>>> 6a7bf5f2de02742b0b45a14f5d8eec3b102b176d
         <item itemvalue="Python.search_all" />
         <item itemvalue="Python.search" />
+        <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.process_test" />
       </list>
@@ -3782,8 +3792,12 @@
       <workItem from="1571039096701" duration="114000" />
       <workItem from="1571042119814" duration="65000" />
       <workItem from="1571042238979" duration="398000" />
+<<<<<<< HEAD
       <workItem from="1571043031517" duration="8487000" />
       <workItem from="1571211555889" duration="7466000" />
+=======
+      <workItem from="1571043031517" duration="8337000" />
+>>>>>>> 6a7bf5f2de02742b0b45a14f5d8eec3b102b176d
     </task>
     <servers />
   </component>
