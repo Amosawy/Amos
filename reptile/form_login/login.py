@@ -1,4 +1,4 @@
-
+import http.cookiejar
 import urllib.request
 import urllib.parse
 from pprint import pprint
@@ -28,6 +28,31 @@ def login_formkey():
     request=urllib.request.Request(LOGIN_URL,encoded_data)
     response=urllib.request.urlopen(request)
     print(response.geturl())
+def login_cookies():
+    # working login
+    cj=http.cookiejar.MozillaCookieJar('cookie.txt')
+    opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+    html=opener.open(LOGIN_URL).read()
+    data=parse_form(html)
+    data['email'] = LOGIN_EMAIL
+    data['password'] = LOGIN_PASSWORD
+    encoded_data=urllib.parse.urlencode(data).encode(encoding='utf-8')
+    request=urllib.request.Request(LOGIN_URL,encoded_data)
+    response=opener.open(request)
+    print(response.geturl())
+    cj.save(ignore_discard=True, ignore_expires=True)
+    print(cj)
+    for item in cj:
+        print('Name='+item.name)
+        print('Value='+item.value)
+    return opener
+def login_cookies2():
+    cookie=http.cookiejar.MozillaCookieJar('cookie.txt')
+    cookie.load('cookie.txt',ignore_discard=True, ignore_expires=True)
+    opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookie))
+    request=urllib.request.Request(LOGIN_URL)
+    response=opener.open(request)
+    print(response.geturl())
 def parse_form(html):
     tree=lxml.html.fromstring(html)
     data={}
@@ -35,4 +60,6 @@ def parse_form(html):
         if e.get('name'):
             data[e.get('name')]=e.get('value')
     return data
-login_formkey()
+
+# login_cookies()
+login_cookies2()
